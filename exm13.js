@@ -7,8 +7,8 @@ server.listen(PORTA);
 console.log(`Servidor ouvindo na porta http://127.0.0.1:${PORTA}`);
     
 function trataRequisicao(requisicao, resposta) {
-    for (let i = 0; i < 10; i++) {
-    resposta.write("<h1>Olá, mundo!</h1>")
-    }
+    resposta.writeHead(200, {"Content-Type", "application/json","charset=utf-8"});
+    const obj = {name: "Informação", min: 1, max: 10};
+    resposta.write("<h1>Olá, mundo!</h1>");
     resposta.end();
 }
